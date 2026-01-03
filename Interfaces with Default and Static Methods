@@ -1,0 +1,76 @@
+interface Hotel{
+    void sambar();
+    int num=10;
+    default void dosa(){
+        System.out.println("Dosa cooking");
+    }
+    static void parcel(){
+        System.out.println("Parcel");
+    }
+}
+class Kitchen implements Hotel{
+    public void sambar(){
+        System.out.println("Cooking sambar");
+    }
+}
+class Main{
+    public static void main(String[] args){
+        Kitchen k=new Kitchen();
+        k.dosa();
+        k.sambar();
+        Hotel.parcel();
+    }
+}
+
+//Multiple Inheritance Using Interfaces
+
+interface Mom {
+    void chutney();
+}
+interface Wife {
+    void chutney();
+}
+class Husband implements Mom, Wife {
+    // Implement the common method from both interfaces
+    public void chutney() {
+        System.out.println("Chutney cooked by husband");
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        // Create a Husband object
+        Husband h = new Husband();      
+        // Call the method using the object
+        h.chutney();     
+        // Optional: demonstrate polymorphism using interface references
+        Mom m = new Husband();
+        Wife w = new Husband();      
+        m.chutney(); // calls Husband's implementation
+        w.chutney(); // calls Husband's implementation
+    }
+}
+
+//Interfaces with Inheritance, Static Methods, and Multiple Inheritance
+
+interface Family{
+	static void fam() {
+		System.out.println("Happy family");
+	}
+}
+interface Mom extends Family{
+	void chutney();
+}
+interface Wife extends Family{
+	void chutney();
+}
+class Husband implements Mom,Wife{
+	public void chutney() {
+		System.out.println("chutney cooked by husband");
+	}
+}
+public class Main {
+	public static void main(String[] args) {
+		Husband h=new Husband();
+		h.chutney();
+	}
+}

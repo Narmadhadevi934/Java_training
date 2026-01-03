@@ -1,0 +1,25 @@
+
+class Main{   
+    // Method demonstrating parameter passing
+    void meth(int num, int[] arr){
+        // Changing primitive parameter (does NOT affect original)
+        num = 10;      
+        // Reassigning array reference (new array) – original array not affected
+        arr = new int[5];
+        arr[0] = 10; // modifies the new array, not the original
+    }    
+    public static void main(String[] args){
+        Main ob = new Main();        
+        int arr[] = new int[1]; // original array
+        int num = 5;            // primitive variable      
+        arr[0] = 5;             // initializing array
+        System.out.println(num);   // prints 5
+        System.out.println(arr[0]); // prints 5     
+        // Call method
+        ob.meth(num, arr);        
+        // num is unchanged because primitives are passed by value
+        System.out.println(num);   // prints 5       
+        // arr[0] is unchanged because the array reference was reassigned inside method
+        System.out.println(arr[0]); // prints 5
+    }
+}

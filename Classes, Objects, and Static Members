@@ -1,0 +1,27 @@
+class Main{    
+    // Instance variables (each object has its own copy)
+    String name;
+    int roll;    
+    // Static variable (shared among all objects)
+    static String clg = "VCET";    
+    Main ob5; // another object reference (not used in this example)    
+    // Constructor to initialize name and roll
+    Main(String n, int r){
+        name = n;
+        roll = r;
+    }    
+    // Method to display object details
+    void disp(){
+        System.out.println(name + " " + roll + " " + clg);
+    }   
+    public static void main(String[] args){
+        // Creating three objects of Main class
+        Main ob1 = new Main("Narmu", 66);
+        Main ob2 = new Main("Praneush", 74);
+        Main ob3 = new Main("Karthi", 66);       
+        // Calling disp() method for each object
+        ob1.disp(); // prints: Narmu 66 VCET
+        ob2.disp(); // prints: Praneush 74 VCET
+        ob3.disp(); // prints: Karthi 66 VCET
+    }
+}

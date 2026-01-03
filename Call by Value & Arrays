@@ -1,4 +1,3 @@
-
 class Main{   
     // Method demonstrating parameter passing
     void meth(int num, int[] arr){
@@ -23,3 +22,22 @@ class Main{
         System.out.println(arr[0]); // prints 5
     }
 }
+
+//mutable objects
+class Main{
+    void meth(int num,int[] arr){
+        num=10;
+        arr[0]=10;
+    }
+    public static void main(String[] args){
+        Main ob=new Main();
+        int arr[] = new int[1];
+        int num=5;
+        arr[0]=5;
+        System.out.println(num);
+        System.out.println(arr[0]);
+        ob.meth(num,arr);
+        System.out.println(num);
+        System.out.println(arr[0]);
+    } 
+} 

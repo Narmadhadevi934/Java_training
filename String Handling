@@ -1,0 +1,29 @@
+//StringBuffer
+class Main {
+    public static void main(String[] args) {
+        // Creating an immutable String
+        String s = "Narmadha";    
+        // Creating a StringBuffer object (mutable)
+        StringBuffer sb = new StringBuffer();        
+        // Appending the String to StringBuffer
+        sb.append(s);        
+        // Appending another String
+        sb.append(" Devi");
+        System.out.println(sb);       
+        // Replacing characters from index 8 to 13 with "Karthi"
+        sb.replace(8,13,"Karthi");
+        System.out.println(sb);      
+        // Replacing characters from index 4 to 8 with "u"
+        sb.replace(4,8,"u");
+        System.out.println(sb);        
+        // Inserting "adha" at index 4
+        sb.insert(4,"adha");
+        System.out.println(sb);        
+        // Deleting the character at index 8
+        sb.delete(8,9);
+        System.out.println(sb);     
+        // Reversing the entire StringBuffer content
+        sb.reverse();
+        System.out.println(sb);
+    }
+}

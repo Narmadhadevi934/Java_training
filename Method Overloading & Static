@@ -1,0 +1,79 @@
+class Main {
+    String name;
+    int roll;
+    static String clg = "VCET";
+    void setter() {
+        System.out.println("No Parameter method");
+    }
+    void setter(float fl) {
+        System.out.println(fl);
+    }
+    void setter(String n, int r) {
+        name = n;
+        roll = r;
+        System.out.println(name + " " + roll+" "+clg);
+    }
+    void setter(int r, String n) {
+        name = n;
+        roll = r;
+        System.out.println(name + " " + roll+" "+clg);
+    }
+    // Added to avoid confusion
+    void setter(int r) {
+        roll = r;
+        System.out.println( roll);
+    }
+    void disp() {
+        System.out.println(name + " " + roll + " " + clg);
+    }
+    public static void main(String[] args) {
+        Main ob1 = new Main();
+        ob1.setter();                  // no parameter
+        ob1.setter("Narmu", 66);        // String, int
+        ob1.setter(74, "Praneush");     // int, String
+        ob1.setter(22.25f);             // float
+        ob1.setter(66);                 // int
+    }
+}
+
+
+class Main{
+	String name;
+	int roll;
+	static String clg="VCET";
+	void setter(){
+		System.out.println("No Parameter method");
+	}
+	void setter(float fl){
+		System.out.println(fl);
+	}
+	void setter(String n,int r){
+		name=n;
+		roll=r;
+	}
+	void setter(int r,String n){
+		name=n;
+		roll=r;
+	}
+	void disp() {
+		System.out.println(name+" "+roll+" "+clg);
+	}
+	void setter(int num1,float num2) {
+		System.out.println(num1+num2);
+	}
+	void setter(float num2,int num1) {
+		System.out.println(num1-num2);
+	}
+	public static void main(String[] args) {
+		Main ob1=new Main();
+		ob1.setter();
+        ob1.setter("Narmu",66);
+        ob1.setter(74,"Praneush");
+        ob1.setter(22.25f);
+        ob1.setter(66);
+		ob1.setter(10,22.25f);
+		ob1.setter(22.25f,10);
+		//ob1.setter(20,10); can't invoke (ambigous Exception)
+		ob1.disp();
+	}
+}

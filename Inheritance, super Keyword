@@ -1,0 +1,55 @@
+import java.util.Scanner;
+class VcetV1{            // all the class can extend Object implicitly
+    int fees = 10000;
+    VcetV1(){
+        super();  // calls Object class constructor
+        System.out.println("Parent class constructor");
+    }
+    void rules() {
+        System.out.println("Id, Shoes and Formals must");
+    }
+}
+class VcetV2 extends VcetV1{   // child class inherits from VcetV1
+    VcetV2(){
+        super();  // calls parent constructor
+        System.out.println("Child class constructor");
+    }
+    int fees = 20000;
+    void rules() {
+        super.rules();  // call parent rules() method
+        System.out.println("Id, Shoes are must");
+        System.out.println("Fees : " + fees);
+        System.out.println("old Fees : " + super.fees);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+       // IS-A relationship: Parent reference pointing to Child object
+        VcetV1 ob = new VcetV2();
+        // Runtime polymorphism: child rules() executes
+        ob.rules();
+        // HAS-A relationship: using Scanner object
+        int num = sc.nextInt();
+    }
+}
+
+class Bean{
+    private int num = 10;  // Encapsulated variable
+    // Getter method to access private variable
+    public int getter() {
+        return num;
+    }
+    // Setter method to modify private variable
+    public void setter(int n) {
+        num = n;
+    }
+}
+class Main{
+    public static void main(String[] args){
+        Bean b = new Bean(); // Create object of Bean
+        b.setter(100);       // Update private variable using setter
+        System.out.println(b.getter()); // Access private variable using getter
+    }
+}
+

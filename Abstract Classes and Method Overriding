@@ -1,0 +1,27 @@
+// Abstract class cannot be instantiated and can have abstract and non-abstract methods
+abstract class Hotel{
+    // Abstract method (no body) → must be overridden in subclass
+    abstract void sambar();
+    // Concrete method (has a body)
+    void dosa(){
+        System.out.println("Cooking in front of all");
+    }
+} 
+// Subclass that extends the abstract class
+class Kitchen extends Hotel{
+    // Must override the abstract method
+    void sambar(){
+        System.out.println("Cooking sambar in Kitchen");
+    }
+}
+// Main class to test
+class Main{
+    public static void main(String[] args){
+        // Polymorphism: Parent reference pointing to child object
+        Hotel h = new Kitchen();      
+        // Calls overridden abstract method in child class
+        h.sambar();   // Output: Cooking sambar in Kitchen       
+        // Calls concrete method from abstract parent class
+        h.dosa();     // Output: Cooking in front of all
+    }
+}

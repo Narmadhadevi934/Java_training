@@ -148,3 +148,50 @@ class Main{
         System.out.println(nk.containsKey(66));
     }
 }
+
+//Nested Collections
+
+import java.util.*;
+class Main{ 
+    // Method to find the longest string from each inner ArrayList
+    List<String> longestString(LinkedList<ArrayList<String>> li){
+        ArrayList<String> res = new ArrayList<>();   
+        for(ArrayList<String> l : li){
+            String op = ""; // to store the longest string
+            int max = 0;    // to store the max length
+            System.out.println(l); // print current inner list       
+            for(String st : l){
+                if(max < st.length()){
+                    max = st.length();
+                    op = st;
+                }
+            }            
+            // Add the longest string of this list to the result
+            res.add(op);
+        }
+        return res;
+    }
+    public static void main(String[] args){
+        // Creating a LinkedList of ArrayLists
+        LinkedList<ArrayList<String>> li = new LinkedList<>();
+        li.add(new ArrayList<>());
+        li.add(new ArrayList<>());
+        li.add(new ArrayList<>());      
+        // Adding elements to inner ArrayLists
+        li.get(0).add("Jayaroopa");
+        li.get(0).add("Narmadha");
+        li.get(1).add("kavin");
+        li.get(1).add("Mohan");
+        li.get(1).add("Krishna");
+        li.get(2).add("Usha");
+        li.get(2).add("Lohitha");      
+        System.out.println("Size of outer list: " + li.size());
+        System.out.println("Size of second inner list: " + li.get(1).size());      
+        // Create object to call non-static method
+        Main obj = new Main();
+        List<String> result = obj.longestString(li);     
+        // Print longest strings from each inner list
+        System.out.println("Longest strings: " + result);
+    }
+}
+

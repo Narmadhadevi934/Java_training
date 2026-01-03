@@ -1,0 +1,72 @@
+class Main{
+    // Instance variables
+    String name;
+    int roll;    
+    // Static variable
+    static String clg = "VCET";    
+    // Constructor with parameters
+    Main(String name,int r){
+        this.name = name; // "this" refers to current object
+        roll = r;
+    }    
+    // Method to display object details
+    void disp() {
+        System.out.println(this); // prints object's reference (memory address)
+        System.out.println(name + " " + roll + " " + clg);
+    }    
+    // Method calling another method using "this"
+    void meth(){
+        this.disp(); // calling disp() of current object
+    }    
+    public static void main(String[] args) {
+        // Creating two objects of Main class
+        Main ob1 = new Main("Narmadha", 66);
+        Main ob2 = new Main("Mohan", 12);        
+        // Printing object reference directly
+        System.out.println(ob1); // prints something like Main@1a2b3c
+        ob1.meth();              // calls disp() via this        
+        System.out.println(ob2); // prints object reference
+        ob2.meth();              // calls disp() via this
+    }
+}
+
+//Constructors, this() call, and this keyword
+
+public class Main {
+    // Instance variables
+    String name;
+    int roll;  
+    // Static variable shared by all objects
+    static String clg = "VCET";    
+    // Default constructor
+    Main() {
+        System.out.println("Default Constructor");
+    }    
+    // Parameterized constructor
+    Main(String name, int r) {
+        this();             // Calls default constructor first
+        this.name = name;   // Assign instance variable
+        roll = r;
+    }    
+    // Method that takes a Main object as argument
+    void disp(Main ob) {
+        System.out.println(ob);                    // Prints object reference
+        System.out.println(this.name + " " + this.roll + " " + clg);
+    }    
+    // Method calling disp() using this
+    void meth() {
+        System.out.println(this);   // prints current object reference
+        this.disp(this);            // passes current object to disp()
+    }   
+    public static void main(String[] args) {
+        // Creating objects using parameterized constructor
+        Main ob1 = new Main("Kavin", 44);
+        Main ob2 = new Main("Soniya", 49);        
+        System.out.println(ob1);    // prints object reference
+        ob1.meth();                 // calls meth() for ob1      
+        System.out.println(ob2);    // prints object reference
+        ob2.meth();                 // calls meth() for ob2
+    }
+}
+
+

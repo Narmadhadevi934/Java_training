@@ -1,0 +1,11 @@
+//String Manipulation
+class Main{
+    public static void main(String[] args) {
+        String st1 = "Hello everyone ";
+        String res ="";
+        for(char c: st1.toCharArray()){
+            res = c+res;
+        }
+        System.out.println(res);
+    }
+}

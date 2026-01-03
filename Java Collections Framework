@@ -1,4 +1,5 @@
 //PriorityQueue
+import java.util.*;
 class Main{
     public static void main(String[] args){
         PriorityQueue <Integer> li = new PriorityQueue<>();
@@ -11,5 +12,139 @@ class Main{
         System.out.println(li.remove());
         System.out.println(li.poll());
         System.out.println(li);
+    }
+}
+
+//LinkedList
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Queue<Integer> li = new LinkedList<>();
+        li.offer(2);
+        li.offer(6);
+        li.offer(4);
+        li.offer(3);
+        li.offer(3);
+        li.offer(1);
+        System.out.println(li.remove());
+        System.out.println(li.poll());
+        System.out.println(li);
+    }
+}
+
+//Deque
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Deque <Integer> li = new ArrayDeque<>();
+        li.offer(2);
+        li.offer(6);
+        li.offer(4);
+        li.offer(3);
+        li.offerFirst(1);
+        System.out.println(li);
+        System.out.println(li.remove());
+        System.out.println(li.pollLast());
+        System.out.println(li);
+    }
+}
+
+//HashSet implementation
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Set <String> li = new HashSet<>();
+        li.add("Narmu");
+        li.add("Karthi");
+        li.add("Praneush");
+        li.add("Mohan");
+        System.out.println(li);
+        System.out.println(li.remove("Mohan"));
+        System.out.println(li);
+    }
+}
+
+//LinkedHashSet implementation
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        LinkedHashSet <String> li = new LinkedHashSet<>();
+        li.add("Narmu");
+        li.add("Karthi");
+        li.add("Praneush");
+        li.add("Mohan");
+        System.out.println(li);
+        System.out.println(li.remove("Mohan"));
+        System.out.println(li);
+    }
+}
+
+//TreeSet implementation
+class Main{
+    public static void main(String[] args){
+        // Creating a TreeSet to store String elements in sorted order
+        TreeSet <String> li = new TreeSet<>();
+        // Adding elements to the TreeSet
+        li.add("Narmu");
+        li.add("Karthi");
+        li.add("Praneush");
+        li.add("Mohan");    
+        // Printing the TreeSet (elements will be in alphabetical order)
+        System.out.println(li);        
+        // Removing the element "Mohan" and printing the result (true/false)
+        System.out.println(li.remove("Mohan"));       
+        // Printing the TreeSet after removal
+        System.out.println(li);
+    }
+}
+
+//Map Interface
+class Main{
+    public static void main(String[] args){       
+        // Creating a LinkedHashMap to store key-value pairs
+        // LinkedHashMap maintains insertion order of elements
+        LinkedHashMap<Integer,String> nk = new LinkedHashMap<>();        
+        // Adding elements using put(key, value)
+        nk.put(66,"Narmu");
+        nk.put(74,"Praneush");
+        nk.put(67,"Mohan");
+        nk.put(65,"Moni");      
+        // Printing the entire LinkedHashMap (in insertion order)
+        System.out.println(nk);       
+        // Retrieving the value associated with key 74
+        System.out.println(nk.get(74));        
+        // Printing all keys present in the map
+        System.out.println(nk.keySet());         
+        // Printing all values present in the map
+        System.out.println(nk.values());
+    }
+}
+
+class Main{
+    public static void main(String[] args){     
+        // Creating a HashMap to store Integer keys and String values
+        // HashMap does NOT maintain insertion order
+        HashMap<Integer,String> nk = new HashMap<>();        
+        // Adding key-value pairs using put()
+        nk.put(66,"Narmu");
+        nk.put(74,"Praneush");
+        nk.put(67,"Mohan");
+        nk.put(65,"Moni");      
+        // Iterating through the map using keySet()
+        for(int i : nk.keySet()){
+            // Printing each key with its corresponding value
+            System.out.println(i + ":" + nk.get(i));
+        }      
+        // Printing an empty line
+        System.out.println("");
+        System.out.println("by using entrySet");
+        System.out.println("");      
+        // Iterating through the map using entrySet()
+        for(Map.Entry<Integer,String> mk : nk.entrySet()){
+            // Printing key and value using Map.Entry methods
+            System.out.println(mk.getKey() + " " + mk.getValue());
+        }        
+        // Checking whether the key 66 is present in the map
+        System.out.println(nk.containsKey(66));
     }
 }

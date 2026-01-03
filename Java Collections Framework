@@ -1,0 +1,15 @@
+//PriorityQueue
+class Main{
+    public static void main(String[] args){
+        PriorityQueue <Integer> li = new PriorityQueue<>();
+        li.offer(2);
+        li.offer(6);
+        li.offer(4);
+        li.offer(3);
+        li.offer(3);
+        li.offer(1);
+        System.out.println(li.remove());
+        System.out.println(li.poll());
+        System.out.println(li);
+    }
+}

@@ -1,0 +1,126 @@
+class A extends Thread{ //thread is a class name
+    public void run(){
+            System.out.println("Amma"+Thread.currentThread());        
+    }
+}
+class Main{
+    public static void main(String[] args){
+        A a1=new A();
+        A b1=new A();      
+        a1.setName("Creating the new Thread");//if you want to set the name use "setName" before if you start the method 
+        b1.setName("final Thread is created");
+        a1.start();//thread created
+        b1.run();//single thread      
+        System.out.println(a1.getState());       
+    }
+}
+
+//Multithreading using Runnable Interface
+
+class A implements Runnable{ 
+    public void run(){
+            System.out.println("the state is now Runnable");
+    }
+}
+class Main{
+    public static void main(String[] args){
+        A a1=new A();
+        A b1=new A();
+        Thread a = new Thread(a1);
+        Thread n = new Thread(b1);
+        Thread n1 = new Thread(new A());
+        a.start();
+        n.start();
+        n1.start();
+        System.out.println(a.getState());
+    }
+}
+
+//Thread Execution & Current Thread Name
+
+class A implements Runnable{ 
+    public void run(){
+        for(int i=1;i<=5;i++){
+            System.out.println(Thread.currentThread().getName());
+            //System.out.print(i+" ");   
+        }
+    }
+}
+class Main{
+    public static void main(String[] args){
+        A a1=new A();
+        Thread a = new Thread(a1);
+        a.start();
+    }
+}
+
+
+//Synchronization, Thread States, and Lambda Expressions
+
+class Task{
+    synchronized void print(){
+        try{
+            Thread.sleep(2000);//sleep to stop but not terminated
+        }
+        catch(Exception e){
+            System.out.println("executed");
+        }
+        System.out.println("Successfull");
+    }
+}
+class Main{
+    public static void main(String[] args){
+        Task a = new Task();
+        Task b = new Task();
+        Thread a1 = new Thread(()->a.print());//arrow function
+        Thread b1 = new Thread(()->b.print());
+        System.out.println(a1.getState());
+        a1.start();
+        System.out.println(a1.getState());
+        b1.start();
+        System.out.println(a1.getState());
+    }
+}
+
+//Inter-Thread Communication using wait() and notify()
+
+class Task{
+    synchronized void print(){
+        try{
+            System.out.println(Thread.currentThread().getName());
+            wait();
+            System.out.println(Thread.currentThread().getName());
+        }
+        catch (InterruptedException e){
+            System.out.println("Error");
+            e.printStackTrace();
+        }
+        System.out.println("Completed");
+    }
+    synchronized void notifyThread(){
+        System.out.println(Thread.currentThread().getName());
+        notify();//notify to get the thread status
+        System.out.println(Thread.currentThread().getName());
+    }
+}
+class Main{
+    public static void main(String[] args) throws InterruptedException{
+        Task a = new Task();
+        Thread a1 = new Thread(()->{a.print();},"Thread 1");
+        Thread a2 = new Thread(()->{
+            try{
+                Thread.sleep(2000);
+                a.notifyThread();
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        },"Thread 2");
+        a1.start();
+        Thread.sleep(500);
+        a2.start();
+        //a1.join();
+        //a2.join();
+        System.out.println("Main Thread");
+    }
+}

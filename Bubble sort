@@ -1,0 +1,48 @@
+//Normal Bubblesort
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] arr={1,8,3,5,2,9};
+	    System.out.println(Arrays.toString(arr));
+	    for(int j=0; j<arr.length;j++){
+	        for(int i=0;i<arr.length-1;i++){
+	            if(arr[i] > arr[i+1]){
+	                int temp = arr[i];
+	                arr[i] = arr[i+1];
+	                arr[i+1] = temp;
+	            }
+	        }
+	        System.out.println(Arrays.toString(arr));
+	    }
+	}
+}
+
+//Bubblesort using Optimized
+
+class Main{
+    void bubble(int [] arr){
+        boolean swap=true;
+        while(swap){
+            swap=false;
+    	        for(int i=0;i<arr.length-1;i++){
+    	            if(arr[i] > arr[i+1]){
+    	                int temp = arr[i];
+    	                arr[i] = arr[i+1];
+    	                arr[i+1] = temp;
+    	                swap=true;
+    	            }
+    	        }
+    	        System.out.println(Arrays.toString(arr));
+        }
+    }
+    public static void main(String[] args){
+        Main a = new Main();
+        int [] arr ={9,6,2,4,8,5,1};
+        System.out.println(Arrays.toString(arr));
+        a.bubble(arr);
+        //System.out.println(Arrays.toString(arr));
+    }
+
+}
